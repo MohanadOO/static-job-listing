@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap');
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*
+ Base styles
+ */
+
+:root {
+  --primary-cyan-900: hsl(180, 29%, 50%);
+  --neutral-cyan-background: hsl(180, 52%, 96%);
+  --neutral-cyan-filter-tablets: hsl(180, 31%, 95%);
+  --neutral-cyan-800: hsl(180, 8%, 52%);
+  --neutral-cyan-900: hsl(180, 14%, 20%);
+}
+
+body {
+  font-size: 15px;
+  background-color: var(--neutral-cyan-background);
+}
+
+.App {
+  font-family: 'Spartan', sans-serif;
+}
+
+.bg-header {
+  width: 100%;
+  background-color: hsl(180, 14%, 20%, 0.6);
+  margin-bottom: 4.5rem;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+@media (min-width: 672px) {
+  .show {
+    display: none;
+  }
+
+  .hide {
+    display: block;
+  }
+}
+
+.job-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.job-card-wrapper,
+.filter-wrapper {
+  padding-inline: 0.5em;
+}
+
+.job-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  padding: 1.5em 2em;
+  margin-bottom: 3em;
+  margin-inline: auto;
+  max-width: 350px;
+  background-color: white;
+  box-shadow: 0 0 50px var(--neutral-cyan-filter-tablets);
+  border-radius: 8px;
+}
+
+.featured-border {
+  border-left: 6px solid var(--primary-cyan-900);
+}
+
+@media (min-width: 672px) {
+  .job-card-wrapper,
+  .filter-wrapper {
+    padding-inline: 2em;
+  }
+  .job-card {
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    max-width: 1100px;
+  }
+}
+
+.job-logo {
+  position: absolute;
+  max-width: 50px;
+  top: 0;
+  transform: translateY(-20px);
+}
+
+@media (min-width: 672px) {
+  .job-logo {
+    position: relative;
+    max-width: 100px;
+    transform: translateY(0);
+  }
+}
+
+.job-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 2em;
+}
+
+@media (min-width: 672px) {
+  .job-info {
+    margin-top: 0;
+  }
+}
+
+.job-company,
+.job-list,
+.filter-item-name {
+  font-weight: 600;
+  color: var(--primary-cyan-900);
+}
+
+.job-new,
+.job-featured {
+  font-size: 0.8rem;
+  color: white;
+  padding: 0.4em 0.7em;
+  border-radius: 14px;
+}
+
+.job-new {
+  background-color: var(--primary-cyan-900);
+}
+
+.job-featured {
+  background-color: var(--neutral-cyan-900);
+}
+
+.job-position {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.job-position:hover {
+  color: var(--primary-cyan-900);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.job-type-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--neutral-cyan-800);
+}
+
+.job-type-info div {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.job-type-info > div:not(:last-child)::after {
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  background-color: var(--neutral-cyan-800);
+  content: '';
+  top: 40%;
+}
+
+.hr-line {
+  width: 100%;
+  height: 1px;
+  background-color: var(--neutral-cyan-800);
+}
+
+.job-list {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+  row-gap: 15px;
+}
+
+@media (min-width: 672px) {
+  .job-list {
+    margin-left: auto;
+  }
+}
+
+.job-list > div,
+.filter-item-name {
+  padding: 0.4em;
+  border-radius: 5px;
+  background-color: var(--neutral-cyan-filter-tablets);
+}
+
+.job-list > div:hover {
+  color: white;
+  background-color: var(--primary-cyan-900);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.search-filter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 1em 0.8em;
+  transform: translateY(-90px);
+  background-color: white;
+  max-width: 350px;
+  margin-inline: auto;
+  border-radius: 5px;
+  box-shadow: 0 0 10px var(--neutral-cyan-800);
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 672px) {
+  .search-filter {
+    max-width: 1100px;
+    padding-inline: 1em;
+    transform: translateY(-90px);
+  }
+}
+
+.items-list {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-item-name {
+  font-size: 0.8rem;
+  border-radius: 5px 0 0 5px;
+}
+
+.filter-remove-icon {
+  background-color: var(--primary-cyan-900);
+  padding: 0.6em;
+  border-radius: 0 5px 5px 0;
+}
+
+.filter-remove-icon:hover {
+  background-color: var(--neutral-cyan-900);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.clear-btn {
+  font-size: 0.9rem;
+  border: none;
+  background-color: transparent;
+  color: var(--neutral-cyan-800);
+}
+
+.clear-btn:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: var(--primary-cyan-900);
+}
