@@ -24,16 +24,20 @@ function JobCard(props) {
       className='job-card-wrapper'
     >
       <div className={`job-card ${props.featured ? 'featured-border' : ''}`}>
-        <img src={`${props.logo}`} className='job-logo' />
+        <img
+          src={`${props.logo}`}
+          alt={`${props.company} logo`}
+          className='job-logo'
+        />
         <div className='job-details'>
           <div className='job-info'>
-            <div className='job-company'>{props.company}</div>
+            <p className='job-company'>{props.company}</p>
             {props.new ? <div className='job-new'>NEW!</div> : null}
             {props.featured ? (
               <div className='job-featured'>FEATURED</div>
             ) : null}
           </div>
-          <div className='job-position'>{props.position}</div>
+          <h1 className='job-position'>{props.position}</h1>
           <div className='job-type-info'>
             <div className='job-postedAt'>{props.postedAt}</div>
             <div className='job-contract'>{props.contract}</div>
