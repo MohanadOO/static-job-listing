@@ -98,7 +98,7 @@ body {
 
 .bg-header {
   width: 100%;
-  background-color: hsl(180, 14%, 20%, 0.6);
+  background-color: var(--primary-cyan-900);
   margin-bottom: 4.5rem;
 }
 
